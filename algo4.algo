@@ -1,0 +1,31 @@
+PROCEDURE insertion (var tab: ARRAY_OF INTEGER[100];var n:INTEGER )
+VAR
+i,a,j:INTEGER;
+ 
+BEGIN
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        a:=tab[i];
+        j:=i;
+
+        WHILE (j>0 && tab[j-1]>a) DO
+        tab[j]:=tab[j-1];
+        j:=j-1;
+        END_WHILE
+        tab[j]:=a;
+    END_FOR
+END
+
+ALGORITHM sorting
+VAR
+tab : ARRAY_OF INTEGER[100];
+n:INTEGER;
+
+BEGIN
+
+insertion(tab;n);
+write("the sorted array is :");
+FOR i FROM 0 TO n-1 STEP 1  DO
+    write(tab[i]);
+END_FOR
+
+END
